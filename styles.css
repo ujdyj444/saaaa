@@ -1,0 +1,116 @@
+/* Общие стили для страницы */
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background: linear-gradient(-45deg, #000, #1a1a1a, #333, #1a1a1a, #000); /* Глубокие черные оттенки */
+    background-size: 400% 400%; /* Увеличиваем размер фона для плавного анимированного эффекта */
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Усиленная тень для текста */
+    animation: gradientAnimation 10s ease infinite; /* Анимация для движения фона */
+}
+
+/* Стили для анимации фона */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+/* Стили для контейнера монеты */
+#coin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    position: relative; /* Для абсолютного позиционирования анимаций */
+}
+
+/* Стили для монеты */
+#coin {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at 30% 30%, #ffcc00, #cc5200); /* Оранжевый с тёмным оттенком */
+    border-radius: 50%;
+    box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.5),
+                inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+                0px 0px 20px rgba(255, 165, 0, 0.8);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+#coin:active {
+    transform: scale(0.85); /* Сжимаем монету при нажатии */
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 5px rgba(0, 0, 0, 0.5),
+                0px 0px 30px rgba(255, 165, 0, 1);
+}
+
+/* Анимация летящих какашек */
+.poop-animation {
+    position: absolute;
+    font-size: 2rem;
+    animation: poopFly 2s ease-out forwards;
+    z-index: 10;
+}
+
+@keyframes poopFly {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-500px) rotate(360deg);
+    }
+}
+
+/* Стили для анимации "+1" */
+.plus-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    pointer-events: none;
+    animation: plusOneAnimation 1s ease-out forwards;
+}
+
+@keyframes plusOneAnimation {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+}

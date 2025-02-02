@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мини-приложение</title>
+  <!-- Подключение Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>SAFRA SAFRA </h1>
+    <div id="coin-container">
+      <div id="coin"></div>
+    </div>
+    <p>Balance: <span id="counter">0</span></p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let counter = 0;
+      const counterElement = document.getElementById("counter");
+      const coinElement = document.getElementById("coin");
+
+      coinElement.addEventListener("click", () => {
+        counter++;
+        counterElement.textContent = counter;
+
+        // Эффект подпрыгивания монеты
+        coinElement.style.transform = "scale(1.1) translateY(-10px)";
+        setTimeout(() => {
+          coinElement.style.transform = "scale(1) translateY(0)";
+        }, 150);
+      });
+
+      // Подключаем Telegram Web App API
+      const tg = window.Telegram.WebApp;
+      tg.expand(); // Разворачиваем приложение на весь экран
+    });
+  </script>
+</body>
+</html>
